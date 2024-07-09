@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 
 public class PantallaDescripcion extends JFrame {
     private JTextField nombreJugador;
-    private Color colorFondo = new Color(230, 230, 250);
-    private Color colorBoton = new Color(106, 90, 205);
+    private Color colorFondo = new Color(230, 230, 250); // Lavanda claro
+    private Color colorBoton = new Color(106, 90, 205); // Azul pizarra
     private Font fuenteTitulo = new Font("Arial", Font.BOLD, 28);
     private Font fuenteNormal = new Font("Arial", Font.PLAIN, 16);
 
@@ -46,8 +46,8 @@ public class PantallaDescripcion extends JFrame {
                 "Bienvenido al Juego de Memoria!\n\n"
                         + "El objetivo es encontrar todos los pares de cartas idénticas.\n"
                         + "En cada turno, voltea dos cartas:\n"
-                        + "- Si coinciden, se quedan boca arriba.\n"
-                        + "- Si no coinciden, se voltean nuevamente.\n\n"
+                        + "- Si coinciden, ¡genial! Se quedan boca arriba.\n"
+                        + "- Si no coinciden, se voltean de nuevo.\n\n"
                         + "El juego termina cuando encuentres todos los pares.\n"
                         + "¡Intenta completarlo en el menor tiempo posible!"
         );
@@ -60,7 +60,7 @@ public class PantallaDescripcion extends JFrame {
 
         JPanel nombrePanel = new JPanel();
         nombrePanel.setOpaque(false);
-        JLabel nombreLabel = new JLabel("Introduzca su nombre:");
+        JLabel nombreLabel = new JLabel("Tu nombre:");
         nombreLabel.setFont(fuenteNormal);
         nombreJugador = new JTextField(15);
         nombreJugador.setFont(fuenteNormal);

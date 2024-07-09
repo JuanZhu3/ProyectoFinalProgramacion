@@ -15,10 +15,9 @@ public class PantallaInicio extends JFrame {
 
         JPanel panel = new JPanel();
         panel.setLayout(new BorderLayout());
-        panel.setBackground(new Color(240, 248, 255)); // Fondo azul claro
 
         JLabel informacion = new JLabel("<html><div style='text-align: center;'>"
-                + "<span style='font-size: 15px; font-family: Arial;'>Universidad Tecnológica de Panamá<br>"
+                + "<span style='font-size: 15px;'>Universidad Tecnológica de Panamá<br>"
                 + "Facultad de Sistemas Computacionales<br>"
                 + "Ingeniería de Software<br>"
                 + "1SF123<br><br>"
@@ -30,26 +29,24 @@ public class PantallaInicio extends JFrame {
                 + "Profesor: Rodrigo Yángüez<br>"
                 + "12/07/2024<br><br>"
                 + "</span></div></html>", JLabel.CENTER);
-        informacion.setForeground(new Color(70, 130, 180)); // Texto azul acero
         panel.add(informacion, BorderLayout.CENTER);
 
         JPanel logosPanel = new JPanel();
         logosPanel.setLayout(new BorderLayout());
-        logosPanel.setOpaque(false); // Hace que el panel sea transparente
 
         try {
             URL urlLogoUni = new URL("https://utp.ac.pa/documentos/2015/imagen/logo_utp_1_72.png");
             ImageIcon iconUni = new ImageIcon(urlLogoUni);
-            Image imageUni = iconUni.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH); // Logo más grande
+            Image imageUni = iconUni.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             JLabel logoUni = new JLabel(new ImageIcon(imageUni));
-            logoUni.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Ajuste de espaciado
+            logoUni.setPreferredSize(new Dimension(100, 100));
             logosPanel.add(logoUni, BorderLayout.WEST);
 
             URL urlLogoFac = new URL("https://fisc.utp.ac.pa/sites/fisc.utp.ac.pa/files/documentos/2020/imagen/logo_en_contactenos.png");
             ImageIcon iconFac = new ImageIcon(urlLogoFac);
-            Image imageFac = iconFac.getImage().getScaledInstance(150, 150, Image.SCALE_SMOOTH); // Logo más grande
+            Image imageFac = iconFac.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
             JLabel logoFac = new JLabel(new ImageIcon(imageFac));
-            logoFac.setBorder(BorderFactory.createEmptyBorder(10, 20, 10, 20)); // Ajuste de espaciado
+            logoFac.setPreferredSize(new Dimension(100, 100));
             logosPanel.add(logoFac, BorderLayout.EAST);
         } catch (Exception e) {
             e.printStackTrace();
@@ -58,10 +55,6 @@ public class PantallaInicio extends JFrame {
         panel.add(logosPanel, BorderLayout.NORTH);
 
         JButton avanzarButton = new JButton("Avanzar");
-        avanzarButton.setFont(new Font("Arial", Font.BOLD, 16)); // Fuente más grande y negrita
-        avanzarButton.setBackground(new Color(106, 90, 205)); // Fondo azul pizarra
-        avanzarButton.setForeground(Color.WHITE); // Texto blanco
-        avanzarButton.setFocusPainted(false); // Quita el borde de enfoque
         avanzarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -73,12 +66,5 @@ public class PantallaInicio extends JFrame {
         panel.add(avanzarButton, BorderLayout.SOUTH);
 
         add(panel);
-    }
-
-    public static void main(String[] args) {
-        SwingUtilities.invokeLater(() -> {
-            PantallaInicio inicio = new PantallaInicio();
-            inicio.setVisible(true);
-        });
     }
 }
