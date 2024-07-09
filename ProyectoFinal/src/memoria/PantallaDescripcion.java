@@ -47,7 +47,7 @@ public class PantallaDescripcion extends JFrame {
                         + "El objetivo es encontrar todos los pares de cartas idénticas.\n"
                         + "En cada turno, voltea dos cartas:\n"
                         + "- Si coinciden, se quedan boca arriba.\n"
-                        + "- Si no coinciden, se voltean nuevamente.\n\n"
+                        + "- Si no coinciden, se voltean de nuevo.\n\n"
                         + "El juego termina cuando encuentres todos los pares.\n"
                         + "¡Intenta completarlo en el menor tiempo posible!"
         );
@@ -60,7 +60,7 @@ public class PantallaDescripcion extends JFrame {
 
         JPanel nombrePanel = new JPanel();
         nombrePanel.setOpaque(false);
-        JLabel nombreLabel = new JLabel("Introduzca su nombre:");
+        JLabel nombreLabel = new JLabel("Tu nombre:");
         nombreLabel.setFont(fuenteNormal);
         nombreJugador = new JTextField(15);
         nombreJugador.setFont(fuenteNormal);
@@ -79,7 +79,7 @@ public class PantallaDescripcion extends JFrame {
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
                     nombre = nombreJugador.getText().trim();
                     if (nombre.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Por favor, ingresa tu nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese su nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
                     } else {
                         new JuegoMemoria(nombre).setVisible(true);
                         dispose();

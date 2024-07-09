@@ -4,13 +4,10 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
 public class PantallaFinJuego extends JFrame {
-
-    private ArrayList<Jugador> ranking = new ArrayList<>();
     private Color colorFondo = new Color(240, 248, 255);
     private Color colorBoton = new Color(70, 130, 180);
     private Font fuenteTitulo = new Font("Arial", Font.BOLD, 28);
