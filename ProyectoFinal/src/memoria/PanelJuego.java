@@ -37,11 +37,16 @@ public class PanelJuego extends JPanel {
         List<ImageIcon> imagenes = new ArrayList<>();
         for (int i = 1; i <= 10; i++) {
             String path = "imagenes/imagen" + i + ".png";
-            ImageIcon imagen = new ImageIcon(path);
-            if (imagen.getImageLoadStatus() == MediaTracker.COMPLETE) {
-                imagenes.add(new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
-            } else {
-                System.err.println("No se pudo cargar la imagen: " + path);
+            try {
+                ImageIcon imagen = new ImageIcon(path);
+                if (imagen.getImageLoadStatus() == MediaTracker.COMPLETE) {
+                    imagenes.add(new ImageIcon(imagen.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH)));
+                } else {
+                    System.err.println("No se pudo cargar la imagen: " + path);
+                }
+            } catch (Exception e) {
+                System.err.println("Error al cargar la imagen: " + path);
+                e.printStackTrace();
             }
         }
         return imagenes;

@@ -4,6 +4,8 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
 
 public class PantallaDescripcion extends JFrame {
     private JTextField nombreJugador;
@@ -73,12 +75,18 @@ public class PantallaDescripcion extends JFrame {
         comenzarButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                String nombre = nombreJugador.getText().trim();
-                if (nombre.isEmpty()) {
-                    JOptionPane.showMessageDialog(null, "Por favor, ingresa tu nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
-                } else {
-                    new JuegoMemoria(nombre).setVisible(true);
-                    dispose();
+                String nombre;
+                try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
+                    nombre = nombreJugador.getText().trim();
+                    if (nombre.isEmpty()) {
+                        JOptionPane.showMessageDialog(null, "Por favor, ingresa tu nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
+                    } else {
+                        new JuegoMemoria(nombre).setVisible(true);
+                        dispose();
+                    }
+                } catch (Exception ex) {
+                    System.err.println("Error al leer el nombre del jugador: " + ex.getMessage());
+                    ex.printStackTrace();
                 }
             }
         });

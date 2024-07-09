@@ -2,11 +2,12 @@ package memoria;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Collections;
+import java.util.List;
 
 public class PantallaFinJuego extends JFrame {
-    private ArrayList<Jugador> ranking = new ArrayList<>();
     private Color colorFondo = new Color(240, 248, 255); // Azul alicia
     private Color colorBoton = new Color(70, 130, 180); // Azul acero
     private Font fuenteTitulo = new Font("Arial", Font.BOLD, 28);
@@ -20,8 +21,8 @@ public class PantallaFinJuego extends JFrame {
         setLocationRelativeTo(null);
         setResizable(false);
 
-        ranking.add(new Jugador(nombreJugador, tiempo));
-        Collections.sort(ranking);
+        Ranking.agregarJugador(nombreJugador, tiempo);
+        List<Ranking.Jugador> ranking = Ranking.getRanking();
 
         JPanel panel = new JPanel() {
             @Override
@@ -54,7 +55,7 @@ public class PantallaFinJuego extends JFrame {
         rankingArea.setOpaque(false);
         StringBuilder rankingTexto = new StringBuilder("Ranking de esta sesión:\n\n");
         for (int i = 0; i < ranking.size(); i++) {
-            Jugador jugador = ranking.get(i);
+            Ranking.Jugador jugador = ranking.get(i);
             rankingTexto.append(String.format("%d. %-15s %5d segundos\n", i + 1, jugador.nombre, jugador.tiempo));
         }
         rankingArea.setText(rankingTexto.toString());
@@ -99,20 +100,5 @@ public class PantallaFinJuego extends JFrame {
         boton.setBorderPainted(false);
         boton.setPreferredSize(new Dimension(150, 40));
         return boton;
-    }
-
-    private static class Jugador implements Comparable<Jugador> {
-        String nombre;
-        int tiempo;
-
-        Jugador(String nombre, int tiempo) {
-            this.nombre = nombre;
-            this.tiempo = tiempo;
-        }
-
-        @Override
-        public int compareTo(Jugador otro) {
-            return Integer.compare(this.tiempo, otro.tiempo);
-        }
     }
 }
