@@ -29,7 +29,6 @@ public class Ranking {
             this.tiempo = tiempo;
         }
 
-        @Override
         public int compareTo(Jugador otro) {
             return Integer.compare(this.tiempo, otro.tiempo);
         }

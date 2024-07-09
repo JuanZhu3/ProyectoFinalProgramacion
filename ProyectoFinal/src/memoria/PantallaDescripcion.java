@@ -9,8 +9,8 @@ import java.io.InputStreamReader;
 
 public class PantallaDescripcion extends JFrame {
     private JTextField nombreJugador;
-    private Color colorFondo = new Color(230, 230, 250); // Lavanda claro
-    private Color colorBoton = new Color(106, 90, 205); // Azul pizarra
+    private Color colorFondo = new Color(230, 230, 250);
+    private Color colorBoton = new Color(106, 90, 205);
     private Font fuenteTitulo = new Font("Arial", Font.BOLD, 28);
     private Font fuenteNormal = new Font("Arial", Font.PLAIN, 16);
 
@@ -46,7 +46,7 @@ public class PantallaDescripcion extends JFrame {
                 "Bienvenido al Juego de Memoria!\n\n"
                         + "El objetivo es encontrar todos los pares de cartas idénticas.\n"
                         + "En cada turno, voltea dos cartas:\n"
-                        + "- Si coinciden, ¡genial! Se quedan boca arriba.\n"
+                        + "- Si coinciden, se quedan boca arriba.\n"
                         + "- Si no coinciden, se voltean de nuevo.\n\n"
                         + "El juego termina cuando encuentres todos los pares.\n"
                         + "¡Intenta completarlo en el menor tiempo posible!"
@@ -79,7 +79,7 @@ public class PantallaDescripcion extends JFrame {
                 try (BufferedReader br = new BufferedReader(new InputStreamReader(System.in))) {
                     nombre = nombreJugador.getText().trim();
                     if (nombre.isEmpty()) {
-                        JOptionPane.showMessageDialog(null, "Por favor, ingresa tu nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
+                        JOptionPane.showMessageDialog(null, "Por favor, ingrese su nombre.", "Nombre requerido", JOptionPane.WARNING_MESSAGE);
                     } else {
                         new JuegoMemoria(nombre).setVisible(true);
                         dispose();
