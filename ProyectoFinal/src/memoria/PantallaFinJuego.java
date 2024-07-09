@@ -8,8 +8,10 @@ import java.util.Collections;
 import java.util.List;
 
 public class PantallaFinJuego extends JFrame {
-    private Color colorFondo = new Color(240, 248, 255); // Azul alicia
-    private Color colorBoton = new Color(70, 130, 180); // Azul acero
+
+    private ArrayList<Jugador> ranking = new ArrayList<>();
+    private Color colorFondo = new Color(240, 248, 255);
+    private Color colorBoton = new Color(70, 130, 180);
     private Font fuenteTitulo = new Font("Arial", Font.BOLD, 28);
     private Font fuenteNormal = new Font("Arial", Font.PLAIN, 16);
     private Font fuenteRanking = new Font("Courier New", Font.BOLD, 14);
@@ -53,7 +55,7 @@ public class PantallaFinJuego extends JFrame {
         rankingArea.setEditable(false);
         rankingArea.setFont(fuenteRanking);
         rankingArea.setOpaque(false);
-        StringBuilder rankingTexto = new StringBuilder("Ranking de esta sesión:\n\n");
+        StringBuilder rankingTexto = new StringBuilder("Ranking:\n\n");
         for (int i = 0; i < ranking.size(); i++) {
             Ranking.Jugador jugador = ranking.get(i);
             rankingTexto.append(String.format("%d. %-15s %5d segundos\n", i + 1, jugador.nombre, jugador.tiempo));
